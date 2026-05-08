@@ -46,35 +46,38 @@ Agar nilai tugasmu aman dan maksimal (terutama untuk poin video presentasi), per
 * **JANGAN Hapus Baris Import:** Jangan menghapus `import java.util.LinkedList;` atau `import java.util.Arrays;` di baris paling atas. Jika dihapus, kodemu akan *error* (merah).
 * **JANGAN Ubah Nama Class Sembarangan:** Nama file (`Tugas1Dummy.java`) harus sama persis dengan nama *class* di dalam kode (`public class Tugas1Dummy`). Jika kamu mengubah nama filenya, kamu juga wajib mengubah nama *class*-nya.
 
+
 ---
 
-## 📚 Mini Ensiklopedia: Tipe Data & Struktur Data Java
+## 📚 Ensiklopedia Mini: Konsep & Logika Struktur Data
 
-Agar kamu tidak sekadar *copy-paste* tapi benar-benar paham secara fundamental, berikut adalah ensiklopedia singkat mengenai tipe dan struktur data yang kita gunakan di Tugas 1 ini:
+Buat kamu yang masih bingung dengan istilah-istilah di atas, jangan khawatir. Di pemrograman, semuanya berakar dari logika dunia nyata. Berikut adalah "contekan" konsep, analogi, dan contoh dari tipe data yang kita gunakan di Tugas 1:
 
-### 1. Float (`float`)
-* **Apa itu?** Tipe data primitif untuk menyimpan angka desimal (pecahan). `float` memiliki presisi tunggal (32-bit), yang berarti cukup untuk menyimpan sekitar 6-7 angka di belakang koma.
-* **Kapan Digunakan?** Sangat cocok untuk data metrik yang tidak membutuhkan presisi absolut tingkat tinggi namun butuh menghemat memori, seperti suhu ruangan (`25.5f`), berat badan, atau tinggi badan.
-* **Aturan Khusus Java:** Kamu **wajib** menambahkan huruf `f` atau `F` di akhir angka (contoh: `3.14f`). Jika tidak, Java akan menganggapnya sebagai tipe data `double` dan akan menghasilkan pesan *error* karena ketidakcocokan ukuran memori.
+### 1. `float` (Bilangan Pecahan)
+* **Pemahaman Konsep:** `float` adalah tipe data primitif di Java yang digunakan untuk menyimpan angka desimal (pecahan). Ingat, setiap mengisi nilai `float`, kamu **wajib** menambahkan huruf `f` (huruf kecil atau kapital) di akhir angka agar Java tidak menganggapnya sebagai tipe data `double` (yang ukurannya lebih besar).
+* **Analogi:** Bayangkan `float` seperti **gelas takar**. Kamu tidak harus mengisinya dengan benda utuh bulat (seperti 1 batu bata). Kamu bisa mengisinya sebanyak 1.5 liter, atau 2.75 liter.
+* **Contoh Penggunaan Asli:** Mengukur suhu ruangan (`25.5f`), berat badan (`65.4f`), atau nilai ujian (`88.5f`).
 
-### 2. String (`String`)
-* **Apa itu?** `String` adalah tipe data non-primitif (sebuah *Class* di Java) yang digunakan untuk menyimpan kumpulan karakter atau teks. Tipe data ini selalu ditandai dengan huruf kapital `S` di awal.
-* **Kapan Digunakan?** Untuk menyimpan nama, alamat, kalimat, nomor telepon (karena nomor telepon tidak digunakan untuk operasi matematika), atau kata sandi. 
-* **Aturan Khusus Java:** Nilai sebuah `String` wajib diapit oleh tanda kutip ganda (`"..."`).
+### 2. `String` (Teks / Kumpulan Karakter)
+* **Pemahaman Konsep:** `String` digunakan untuk menampung teks. Bentuknya bisa berupa satu kata, satu kalimat penuh, atau bahkan campuran angka dan huruf (alfanumerik) asalkan **diapit oleh tanda kutip ganda** (`"..."`). Angka di dalam `String` tidak bisa dipakai untuk operasi hitung matematika.
+* **Analogi:** `String` itu seperti **label stiker pada kardus kemasan**. Kamu bisa menulis apa saja di label tersebut ("Baju Ukuran L", "Kamar 01A"), tapi tulisan angka di situ hanya sebagai identitas, bukan untuk dihitung.
+* **Contoh Penggunaan Asli:** Menyimpan nama orang (`"Andi"`), alamat lengkap (`"Jl. Sudirman No. 1"`), atau plat nomor kendaraan (`"L 1234 XY"`).
 
-### 3. Array 1 Dimensi (`tipeData[]`)
-* **Apa itu?** Array adalah struktur data statis yang bisa menyimpan banyak nilai dalam satu variabel, asalkan tipe datanya sama semua. Analoginya seperti loker memanjang atau deretan gerbong kereta api.
-* **Kapan Digunakan?** Saat kamu punya kumpulan data tunggal yang ukurannya sudah pasti dari awal, seperti daftar nilai 5 mahasiswa, 7 hari dalam seminggu, atau deret angka tertentu.
-* **Kelemahan:** Ukurannya statis. Sekali kamu bikin Array berukuran 5, kamu tidak bisa tiba-tiba memasukkan data ke-6.
+### 3. Array 1 Dimensi (Kumpulan Data Searah)
+* **Pemahaman Konsep:** *Array* adalah struktur data tetap (ukurannya tidak bisa diubah setelah dibuat) yang digunakan untuk menyimpan banyak nilai di dalam **satu variabel tunggal**. Semua nilai di dalamnya harus memiliki tipe data yang sama (misalnya, angka semua atau teks semua).
+* **Analogi:** Bayangkan *Array 1D* seperti **rak sepatu memanjang** di depan masjid. Rak sepatu tersebut punya nomor urut (indeks) dari 0, 1, 2, dst. Sepatu ayah ada di loker nomor 0, sepatu anak ada di loker nomor 1.
+* **Contoh Penggunaan Asli:** Menyimpan 5 daftar nilai ujian dalam satu variabel, misal: `int[] nilai = {80, 85, 90, 75, 88};`.
 
-### 4. Array 2 Dimensi (`tipeData[][]`)
-* **Apa itu?** Sederhananya, ini adalah "Array di dalam Array". Strukturnya menyerupai tabel yang memiliki baris (*row*) dan kolom (*column*), atau seperti sistem koordinat matriks.
-* **Kapan Digunakan?** Sangat ideal untuk menyimpan data berbentuk grid/papan permainan (seperti papan catur atau *tic-tac-toe*), tabel database sederhana, atau denah tempat duduk di bioskop.
+### 4. Array 2 Dimensi (Tabel / Matriks)
+* **Pemahaman Konsep:** *Array 2D* pada dasarnya adalah "*Array* di dalam *Array*". Datanya disimpan dalam bentuk tabel yang memiliki baris (mendatar) dan kolom (menurun). Ciri khasnya di Java adalah menggunakan dua pasang kurung siku `[][]`.
+* **Analogi:** Sama persis dengan **kursi di dalam bioskop**. Untuk mencari di mana kamu harus duduk, kamu butuh dua informasi: Baris ke berapa (misal Baris A) dan Kolom ke berapa (misal Kursi 5). Pertemuan antara baris A dan kolom 5 itulah datamu.
+* **Contoh Penggunaan Asli:** Menyimpan data jadwal piket harian (Hari vs Nama Siswa), atau posisi bidak di atas papan catur.
 
-### 5. Linked List (`LinkedList<Tipe>`)
-* **Apa itu?** Struktur data dinamis yang menyimpan data dalam bentuk *node* (simpul). Berbeda dengan Array yang datanya berjejer rapat di memori, elemen-elemen di *LinkedList* bisa menyebar di memori, namun setiap elemen memiliki "tali pengikat" (*pointer*) yang menunjuk ke elemen berikutnya.
-* **Kapan Digunakan?** Saat kamu membutuhkan fleksibilitas tingkat tinggi. Misalnya, data antrian rumah sakit atau *playlist* musik.
-* **Keunggulan Utama:** Sangat cepat dan efisien jika kita sering menambah atau menghapus data di tengah-tengah antrian. Ukurannya bisa membesar atau mengecil secara otomatis sesuai jumlah isinya, berbeda 180 derajat dengan Array.
+### 5. `LinkedList` (Kumpulan Data Dinamis)
+* **Pemahaman Konsep:** Berbeda dengan *Array* yang ukurannya kaku, `LinkedList` adalah struktur data yang sangat fleksibel. Datanya tidak disimpan berdampingan di memori secara kaku. Setiap data (disebut *node*) menyimpan nilainya sendiri sekaligus "menyimpan alamat" dari data setelahnya.
+* **Analogi:** Ini sangat mirip dengan **gerbong kereta api**. Kamu bisa dengan mudah menambah gerbong baru di ujung kereta, atau melepas kaitan di tengah-tengah kereta untuk menyisipkan gerbong restoran, tanpa harus membongkar seluruh kereta dari awal. Ukuran keretanya bisa panjang dan pendek kapan saja menyesuaikan kebutuhan.
+* **Contoh Penggunaan Asli:** Membuat sistem antrian (*Queue*) di bank, *playlist* lagu di Spotify (bisa nambah/hapus lagu kapan saja), atau fitur *Back/Forward* di *browser* internetmu.
+
 
 ---
 *Mentoring ini didesain khusus untuk mendukung rekan-rekan mahasiswa Universitas Terbuka Surabaya dan UPBJJ lainnya. Terus semangat belajarnya!*
