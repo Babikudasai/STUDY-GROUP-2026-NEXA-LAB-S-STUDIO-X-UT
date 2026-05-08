@@ -78,6 +78,37 @@ Buat kamu yang masih bingung dengan istilah-istilah di atas, jangan khawatir. Di
 * **Analogi:** Ini sangat mirip dengan **gerbong kereta api**. Kamu bisa dengan mudah menambah gerbong baru di ujung kereta, atau melepas kaitan di tengah-tengah kereta untuk menyisipkan gerbong restoran, tanpa harus membongkar seluruh kereta dari awal. Ukuran keretanya bisa panjang dan pendek kapan saja menyesuaikan kebutuhan.
 * **Contoh Penggunaan Asli:** Membuat sistem antrian (*Queue*) di bank, *playlist* lagu di Spotify (bisa nambah/hapus lagu kapan saja), atau fitur *Back/Forward* di *browser* internetmu.
 
+## 🧠 Studi Kasus & Problem Solving (Real-World Scenarios)
+
+Di dunia industri perangkat lunak (*Software Engineering*), pemilihan struktur data yang tepat adalah kunci untuk membuat program yang cepat dan tidak membebani memori (RAM). 
+
+Mari kita bedah kenapa kita menggunakan struktur data tersebut pada *dummy code* kita melalui skenario studi kasus berikut:
+
+### 💼 Case 1: Sistem Profil Akademik (Float & String)
+* **Skenario Masalah (Problem):** Sistem akademik kampus perlu menyimpan nama mahasiswa dan nilai Indeks Prestasi Kumulatif (IPK) mereka. Kita tidak bisa menggunakan tipe data angka biasa (`int`) untuk IPK karena nilainya pasti memiliki desimal (misalnya 3.85).
+* **Problem Solving:**
+  * Gunakan **`String`** untuk nama, karena `String` dirancang khusus untuk menampung rentetan karakter (huruf/teks).
+  * Gunakan **`float`** untuk IPK. Kenapa tidak `double`? Karena untuk sekadar angka IPK dengan dua angka di belakang koma, `float` sudah sangat cukup dan jauh lebih hemat memori *server* dibandingkan `double`.
+
+### 💼 Case 2: Sistem Rekap Nilai e-Learning (Array 1 Dimensi)
+* **Skenario Masalah (Problem):** Seorang dosen perlu merekap 5 nilai kuis untuk satu mata kuliah. Sangat tidak efisien dan akan membuat kode menjadi kotor jika kita harus mendeklarasikan 5 variabel terpisah seperti `int nilai1 = 80;`, `int nilai2 = 85;`, dan seterusnya.
+* **Problem Solving:**
+  Gunakan **`Array 1 Dimensi`**. Cukup deklarasikan satu "loker memori" berderet: `int[] kumpulanNilai = {80, 85, 90, 75, 88};`. Jika dosen ingin melihat nilai kuis ke-3, cukup panggil loker indeks ke-2 (karena indeks dimulai dari 0). Kode menjadi sangat rapi dan mudah di-*looping*.
+
+### 💼 Case 3: Pemetaan Denah Ujian CBT UT (Array 2 Dimensi)
+* **Skenario Masalah (Problem):** Ruang ujian komputer (CBT) diatur dalam bentuk *grid* / petak. Ada baris dan kolom. Pengawas ujian perlu mendata mahasiswa mana yang duduk di "Baris 1, Kolom 2". Jika menggunakan Array 1D, visualisasi tata letak ruangannya akan sangat membingungkan.
+* **Problem Solving:**
+  Gunakan **`Array 2 Dimensi`**. Struktur ini secara logis langsung merepresentasikan tabel (Matriks). Dengan bentuk `String[][] denahLab`, kita memetakan posisi duduk fisik di dunia nyata ke dalam kode pemrograman secara akurat.
+
+### 💼 Case 4: Sistem Antrian Server SIAKAD (LinkedList)
+* **Skenario Masalah (Problem):** Saat masa registrasi mata kuliah, ribuan mahasiswa *login* ke *server* antrian SIAKAD secara bersamaan. Ada mahasiswa yang baru masuk (ditambahkan ke antrian) dan ada yang sudah selesai (dikeluarkan dari antrian). Jika kita menggunakan *Array* biasa, *server* akan sangat lambat karena setiap kali antrian depan selesai, *server* harus menggeser ribuan data di belakangnya maju satu langkah.
+* **Problem Solving:**
+  Gunakan **`LinkedList`**. Struktur data ini berwujud seperti gerbong kereta. Jika mahasiswa di antrian paling depan selesai diproses, sistem hanya perlu "memutus" kaitan gerbong pertama tersebut tanpa perlu menggeser data gerbong lain di belakangnya. Ini membuat proses penambahan (`add`) dan penghapusan (`remove`) antrian berjalan sangat cepat, tidak peduli seberapa panjang antriannya.
+
+---
+**💡 Tips Tugas Video:**
+Saat kalian membuat video presentasi berdurasi 15 menit nanti, jangan ragu untuk menyelipkan sedikit analogi di atas saat menjelaskan kode kalian. Dosen tutor sangat menyukai mahasiswa yang paham konsep secara fundamental, bukan sekadar bisa mengetik kode!
+
 
 ---
 *Mentoring ini didesain khusus untuk mendukung rekan-rekan mahasiswa Universitas Terbuka Surabaya dan UPBJJ lainnya. Terus semangat belajarnya!*
